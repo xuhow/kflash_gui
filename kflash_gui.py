@@ -123,7 +123,7 @@ class MainWindow(QMainWindow):
         oneFilePathWidgetLayout.addWidget(filePathWidget)
         oneFilePathWidgetLayout.addWidget(fileBurnAddrWidget)
         oneFilePathWidgetLayout.addWidget(openFileButton)
-        oneFilePathWidgetLayout.addWidget(removeButton)        
+        oneFilePathWidgetLayout.addWidget(removeButton)
 
         filesItemLen = len(self.fileSelectWidgets)
         hideAddrWidget = True
@@ -133,7 +133,7 @@ class MainWindow(QMainWindow):
             removeButton.hide()
         elif filesItemLen == 1:
             self.fileSelectWidgets[0][7].show()
-        #                0        1                   2                       3               4                   5               6           7             8             
+        #                0        1                   2                       3               4                   5               6           7             8
         item =          ["kfpkg", oneFilePathWidget, oneFilePathWidgetLayout, filePathWidget, fileBurnAddrWidget, openFileButton, False,      removeButton, enableCheckbox]
         # for "bin":    ["bin", oneFilePathWidget,   oneFilePathWidgetLayout, filePathWidget, fileBurnAddrWidget, openFileButton, isFirmware, removeButton, enableCheckbox]
         self.fileSelectWidgets.append(item)
@@ -174,7 +174,7 @@ class MainWindow(QMainWindow):
         mainLayout.addWidget(self.settingWidget)
         mainLayout.setStretch(0,2)
         menuLayout = QHBoxLayout()
-        
+
         self.progressHint = QLabel()
         self.progressHint.hide()
 
@@ -182,7 +182,7 @@ class MainWindow(QMainWindow):
         progressbarLayout = QVBoxLayout()
         self.progressbarRootWidget.setProperty("class","progressbarWidget")
         self.progressbarRootWidget.setLayout(progressbarLayout)
-        
+
         self.downloadWidget = QWidget()
         downloadLayout = QVBoxLayout()
         self.downloadWidget.setProperty("class","downloadWidget")
@@ -225,7 +225,7 @@ class MainWindow(QMainWindow):
         menuLayout.addWidget(self.skinButton)
         menuLayout.addWidget(self.aboutButton)
         menuLayout.addStretch(0)
-        menuLayout.addWidget(self.FuncCombobox)
+        # menuLayout.addWidget(self.FuncCombobox)
 
         # widgets erase configuration
         self.eraseGroupBox = QGroupBox(tr("Erase settings"))
@@ -256,7 +256,7 @@ class MainWindow(QMainWindow):
         eraseLayout.addWidget(self.eraseLenUnit, 2, 2, 1, 1)
         eraseLayout.addWidget(self.eraseLoadConfigCombobox, 3, 1, 1, 1)
         eraseLayout.addWidget(self.eraseLoadButton, 3, 2, 1, 1)
-        
+
         # widgets file select
         self.fileSelectGroupBox = QGroupBox(tr("SelectFile"))
         # container
@@ -268,10 +268,10 @@ class MainWindow(QMainWindow):
         self.fileSelectLayout = QVBoxLayout()
         self.fileSelecWidget.setLayout(self.fileSelectLayout)
         self.fileSelectContainerLayout.addWidget(self.fileSelecWidget)
-        
+
         # add file selection item
         self.addFileSelectionItem()
-        
+
         # add fileselection functions
         mergeBinWidget = QWidget()
         mergeBinWidgetLayout = QHBoxLayout()
@@ -279,16 +279,16 @@ class MainWindow(QMainWindow):
         self.addFileButton = QPushButton(tr("Add File"))
         self.packFilesButton = QPushButton(tr("Pack to kfpkg"))
         self.mergeBinButton = QPushButton(tr("Merge to .bin"))
-        mergeBinWidgetLayout.addWidget(self.addFileButton)
-        mergeBinWidgetLayout.addWidget(self.packFilesButton)
-        mergeBinWidgetLayout.addWidget(self.mergeBinButton)
+        # mergeBinWidgetLayout.addWidget(self.addFileButton)
+        # mergeBinWidgetLayout.addWidget(self.packFilesButton)
+        # mergeBinWidgetLayout.addWidget(self.mergeBinButton)
         self.fileSelectContainerLayout.addWidget(mergeBinWidget)
 
         # widgets board select
-        boardSettingsGroupBox = QGroupBox(tr("BoardSettings"))
-        settingLayout.addWidget(boardSettingsGroupBox)
+        # boardSettingsGroupBox = QGroupBox(tr("BoardSettings"))
+        # settingLayout.addWidget(boardSettingsGroupBox)
         boardSettingsLayout = QGridLayout()
-        boardSettingsGroupBox.setLayout(boardSettingsLayout)
+        # boardSettingsGroupBox.setLayout(boardSettingsLayout)
         self.boardLabel = QLabel(tr("Board"))
         self.boardCombobox = ComboBox()
         for key in self.boardsInfo:
@@ -306,8 +306,8 @@ class MainWindow(QMainWindow):
         serialSettingsGroupBox = QGroupBox(tr("SerialSettings"))
         serialSettingsLayout = QGridLayout()
         serialPortLabek = QLabel(tr("SerialPort"))
-        serailBaudrateLabel = QLabel(tr("SerialBaudrate"))
-        slowModeLabel = QLabel(tr("Speed mode"))
+        # serailBaudrateLabel = QLabel(tr("SerialBaudrate"))
+        # slowModeLabel = QLabel(tr("Speed mode"))
         self.serialPortCombobox = ComboBox()
         self.serailBaudrateCombobox = ComboBox()
         self.serailBaudrateCombobox.addItem("115200")
@@ -322,15 +322,15 @@ class MainWindow(QMainWindow):
         self.slowModeCombobox = ComboBox()
         self.slowModeCombobox.addItem(tr("Slow mode"))
         self.slowModeCombobox.addItem(tr("Fast mode"))
-        slowModeLabel.setToolTip(tr("slow mode tips"))
+        # slowModeLabel.setToolTip(tr("slow mode tips"))
         self.slowModeCombobox.setToolTip(tr("slow mode tips"))
-        
+
         serialSettingsLayout.addWidget(serialPortLabek,0,0)
-        serialSettingsLayout.addWidget(serailBaudrateLabel, 1, 0)
-        serialSettingsLayout.addWidget(slowModeLabel, 2, 0)
+        # serialSettingsLayout.addWidget(serailBaudrateLabel, 1, 0)
+        # serialSettingsLayout.addWidget(slowModeLabel, 2, 0)
         serialSettingsLayout.addWidget(self.serialPortCombobox, 0, 1)
-        serialSettingsLayout.addWidget(self.serailBaudrateCombobox, 1, 1)
-        serialSettingsLayout.addWidget(self.slowModeCombobox, 2, 1)
+        # serialSettingsLayout.addWidget(self.serailBaudrateCombobox, 1, 1)
+        # serialSettingsLayout.addWidget(self.slowModeCombobox, 2, 1)
         serialSettingsGroupBox.setLayout(serialSettingsLayout)
         settingLayout.addWidget(serialSettingsGroupBox)
 
@@ -340,7 +340,7 @@ class MainWindow(QMainWindow):
         settingLayout.setStretch(2,2)
 
         # widgets progress bar
-        
+
         self.progressbar = QProgressBar(self.progressbarRootWidget)
         self.progressbar.setValue(0)
         self.progressbarRootWidget.hide()
@@ -371,7 +371,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(icon)
         if sys.platform == "win32":
             ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(parameters.appName)
-        
+
         self.show()
         self.progressbar.setGeometry(10, 0, self.downloadWidget.width()-25, 40)
         print("config file path:", parameters.configFilePath)
@@ -419,7 +419,7 @@ class MainWindow(QMainWindow):
             self.frameLayout.setStretch(3,1)
             self.frameLayout.setStretch(4,1)
             self.frameLayout.setStretch(5,1)
-    
+
     # @QtCore.pyqtSlot(str)
     def indexChanged_lambda(self, obj):
         mainObj = obj.arg
@@ -433,7 +433,7 @@ class MainWindow(QMainWindow):
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
-    
+
     def changeFunc(self):
         if self.burning or self.packing or self.erasing:
             self.hintSignal.emit(tr("Busy"), tr("Busy"))
@@ -444,7 +444,7 @@ class MainWindow(QMainWindow):
         elif func == tr("Firmware"):
             self.funcSwitch("Firmware")
         self.setWindowSize()
-    
+
     def funcSwitch(self, func):
         # erase mode
         if func == "Erase":
@@ -550,7 +550,7 @@ class MainWindow(QMainWindow):
             self.errorSignal.emit(err, msg)
             self.erasing = False
             return
-        
+
         self.eraseStatus.setText("<font color=%s>%s</font>" %("#0eb40e", tr("Preparing Erase") ))
         eraseThread = threading.Thread(target=self.eraseProcess, args=(addr, length, config['dev'], config['baud'], config['board'], config['color'], config['slow']))
         eraseThread.setDaemon(True)
@@ -558,7 +558,7 @@ class MainWindow(QMainWindow):
         eraseStatusThread = threading.Thread(target=self.updateEraseStatus, args=(length_text, unit, eraseTimeEstimate))
         eraseStatusThread.setDaemon(True)
         eraseStatusThread.start()
-    
+
     def setEraseButton(self, cancel):
         self.eraseButton.setEnabled(True)
         if cancel:
@@ -573,10 +573,10 @@ class MainWindow(QMainWindow):
             self.eraseButton.style().unpolish(self.eraseButton)
             self.eraseButton.style().polish(self.eraseButton)
             self.eraseButton.update()
-    
+
     def setEraseStatus(self, msg):
         self.eraseStatus.setText(msg)
-    
+
     def eraseLoadConfig(self):
         configName = self.eraseLoadConfigCombobox.currentText()
         config = self.eraseTemplateConfigs
@@ -605,7 +605,7 @@ class MainWindow(QMainWindow):
             timeLast = timeEstimate - timeElapsed
             if timeLast < 0:
                 timeLast = 0
-            msg = "<font color=%s>%s</font>" %("#0eb40e", 
+            msg = "<font color=%s>%s</font>" %("#0eb40e",
                     tr("Erase")+" {}{}, wait about {} S".format(length_text, unit, timeLast) )
             self.eraseStatusSignal.emit(msg)
             timeElapsed += 1
@@ -645,7 +645,7 @@ class MainWindow(QMainWindow):
     def fileSelectShow(self, item, name, addr=None, firmware=None, enable=True, loadFirst = False):
         isKfpkg = False
         if self.isKfpkg(name):
-            isKfpkg = True 
+            isKfpkg = True
         if not item: # add item from param
             if loadFirst:
                 item = self.fileSelectWidgets[0]
@@ -740,7 +740,7 @@ class MainWindow(QMainWindow):
             self.fileInfo = {"version": "0.1.0", "files": []}
             self.filePath = {}
             self.burnAddr = []
-        
+
         def addFile(self, addr, path, prefix=False):
             if not os.path.exists(path):
                 raise ValueError(tr("FilePathError"))
@@ -816,7 +816,7 @@ class MainWindow(QMainWindow):
             self.errorSignal.emit(tr("Error"), files)
             self.packing = False
             return
-        
+
         if fileType=="kfpkg":
             self.errorSignal.emit(tr("Error"), tr("Can not pack kfpkg"))
             self.packing = False
@@ -831,8 +831,8 @@ class MainWindow(QMainWindow):
         # select saving path
         if not os.path.exists(self.saveKfpkDir):
             self.saveKfpkDir = os.getcwd()
-        fileName_choose, filetype = QFileDialog.getSaveFileName(self,  
-                                    tr("Save File"),  
+        fileName_choose, filetype = QFileDialog.getSaveFileName(self,
+                                    tr("Save File"),
                                     self.saveKfpkDir,
                                     "k210 packages (*.kfpkg)")
         if fileName_choose == "":
@@ -847,7 +847,7 @@ class MainWindow(QMainWindow):
         t = threading.Thread(target=self.packFileProccess, args=(files, fileName_choose,))
         t.setDaemon(True)
         t.start()
-    
+
     def packFileProccess(self, files, fileSaveName):
         # generate flash-list.json
         kfpkg = self.KFPKG()
@@ -920,7 +920,7 @@ class MainWindow(QMainWindow):
                 self.cleanKfpkgTempFiles()
                 self.packing = False
                 return
-        
+
         ok, msg = self.checkFilesAddrValid(fileType, files)
         if not ok:
             self.errorSignal.emit(tr("Error"), msg)
@@ -931,8 +931,8 @@ class MainWindow(QMainWindow):
         # select saving path
         if not os.path.exists(self.saveKfpkDir):
             self.saveKfpkDir = os.getcwd()
-        fileName_choose, filetype = QFileDialog.getSaveFileName(self,  
-                                    tr("Save File"),  
+        fileName_choose, filetype = QFileDialog.getSaveFileName(self,
+                                    tr("Save File"),
                                     self.saveKfpkDir,
                                     "Binary file (*.bin)")
         if fileName_choose == "":
@@ -948,7 +948,7 @@ class MainWindow(QMainWindow):
         t = threading.Thread(target=self.mergeBinProccess, args=(files, fileName_choose,))
         t.setDaemon(True)
         t.start()
-    
+
     def mergeBinProccess(self, files, fileSaveName):
         self.updateProgressPrintSignal.emit(tr("Merging, please wait ..."))
         files.sort(key=lambda file:file[1])
@@ -1001,8 +1001,8 @@ class MainWindow(QMainWindow):
             oldPath = self.fileSelectWidgets[index - 1][3].text()
         if oldPath=="":
             oldPath = os.getcwd()
-        fileName_choose, filetype = QFileDialog.getOpenFileName(self,  
-                                    tr("SelectFile"),  
+        fileName_choose, filetype = QFileDialog.getOpenFileName(self,
+                                    tr("SelectFile"),
                                     oldPath,
                                     "All Files (*);;bin Files (*.bin);;k210 packages (*.kfpkg);;kmodel (*.kmodel);;encrypted kmodle(*.smodel)")   # 设置文件扩展名过滤,用双分号间隔
 
@@ -1015,7 +1015,7 @@ class MainWindow(QMainWindow):
 
     def errorHint(self, title, str):
         QMessageBox.critical(self, title, str)
-    
+
     def hint(self, title, str):
         QMessageBox.information(self, title, str)
 
@@ -1041,7 +1041,7 @@ class MainWindow(QMainWindow):
         if name.endswith(".kfpkg"):
             return True
         return False
-    
+
     def isFileFirmware(self, name):
         isFirmware = False
         if not os.path.exists(name):
@@ -1049,12 +1049,12 @@ class MainWindow(QMainWindow):
         if name.endswith(".bin"):
             f = open(name, "rb")
             start_bytes = f.read(6)
-            f.close()                
+            f.close()
             for flags in self.firmware_start_bytes:
                 if flags in start_bytes:
                     isFirmware = True
                     break
-        return isFirmware     
+        return isFirmware
 
     def isFileValid(self, name):
         if not os.path.exists(name):
@@ -1147,7 +1147,7 @@ class MainWindow(QMainWindow):
         else:
             translation.setLanguage(translation.language_en)
             lang = tr("English language")
-        
+
         self.hint(tr("Hint"), tr("Language Changed to ") + lang + "\n"+ tr("Reboot to take effect"))
         self.frameWidget.style().unpolish(self.downloadButton)
         self.frameWidget.style().polish(self.downloadButton)
@@ -1186,7 +1186,7 @@ class MainWindow(QMainWindow):
         hint = "<font color=%s>%s %s:</font>   <font color=%s> %.2f%%</font>   <font color=%s> %s</font>" %("#ff7575", tr("Downloading"), fileTypeStr, "#2985ff", percent, "#1aac2d", speedStr)
         self.progressHint.setText(hint)
         self.progressbar.setValue(int(percent))
-    
+
     def updateProgressPrint(self, str):
         self.statusBarStauts.setText(str)
 
@@ -1215,7 +1215,7 @@ class MainWindow(QMainWindow):
             baud = int(self.serailBaudrateCombobox.currentText())
         except Exception:
             return (None, tr("Error"), tr("BaudrateError"))
-            
+
         dev = ""
         try:
             dev  = self.serialPortCombobox.currentText().split()[0]
@@ -1254,7 +1254,7 @@ class MainWindow(QMainWindow):
         #     self.errorSignal.emit(tr("Error"), tr("FilePathError"))
         #     self.burning = False
         #     return
-        
+
         config, err, msg = self.getSerialSettings()
         if not config:
             self.errorSignal.emit(err, msg)
@@ -1328,7 +1328,7 @@ class MainWindow(QMainWindow):
         else:
             self.downloadResultSignal.emit(False, errMsg)
         self.burning = False
-            
+
 
     def downloadResult(self, success, msg):
         if success:
@@ -1379,4 +1379,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
